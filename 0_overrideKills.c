@@ -23,15 +23,16 @@ void handler(int num)
 
 int	main(int argc, char **argv)
 {
-	struct sigaction sa;
-	sa.sa_handler = handler; //&handler also does the same?
+	//struct sigaction sa;
+	//sa.sa_handler = handler; //&handler also does the same?
+	//sigaction(SIGINT, &sa, NULL);
+	//sigaction(SIGTERM, &sa, NULL);
 	
-	signal(SIGINT, handler);
+	signal(SIGINT, handler); //&handler also does the same?
 	signal(SIGTERM, handler);
 	signal(SIGTSTP, handler);
 	signal(SIGKILL, handler); //won't work
-	//sigaction(SIGINT, &sa, NULL);
-	//sigaction(SIGTERM, &sa, NULL);
+
 
 	while (1)
 	{
