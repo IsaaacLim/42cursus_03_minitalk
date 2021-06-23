@@ -29,7 +29,7 @@ int main ()
 	if (pid == 0)
 	{
 		sleep(5); //wait 5 sec
-		kill(getppid(), SIGUSR1); //sends SIGUSR1 to Parent process
+		kill(getppid(), SIGUSR1); //sends SIGUSR1 signal to Parent process
 	}
 	else
 	{
