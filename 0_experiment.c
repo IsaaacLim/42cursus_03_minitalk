@@ -44,7 +44,10 @@ int main()
 				write(1, "-", 1);
 			x++;
 		}
-		write(1, &c, 1);
+		if (c != 97) //for EOF signal
+			write(1, &c, 1);
+		else
+			write(1, "\n", 1);
 		str++;
 	}
 	printf("\n");	

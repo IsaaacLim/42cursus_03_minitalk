@@ -6,15 +6,9 @@ static int size;
 static void	handler(int sig)
 {
 	if (sig == SIGUSR1)
-	{
 		c += (1 << size);
-//		write (1, "1", 1);
-	}
 	else
-	{
 		c += (0 << size);
-//		write (1, "0", 1);
-	}
 	size--;
 }
 
@@ -31,9 +25,6 @@ int main(void)
 	signal(SIGUSR2, handler);
 	while (1)
 	{
-		//sleep(5);
-		//printf("c: %c ", c);
-		//printf("size: %d\n", size);
 		if (size == -1)
 		{
 			write(1, &c, 1);
