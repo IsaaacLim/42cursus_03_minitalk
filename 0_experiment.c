@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 static char c;
-static char size;
+static int size;
 
 void handler_sigusr1(int sig)
 {

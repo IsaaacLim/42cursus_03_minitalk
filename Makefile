@@ -4,19 +4,22 @@ SERVER	=	server
 LIBDIR	=	libft
 LIBFT	=	$(LIBDIR)/libft.a
 
-SRCS	=	client.c
+SRCS	=	client.c server.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 
 CC		=	gcc
 CFLAGS	=	#-Wall -Werror -Wextra 
 
-all:	$(LIBFT) $(CLIENT)
+all:	$(LIBFT) $(CLIENT) $(SERVER)
 
 $(LIBFT):
 	make -C $(LIBDIR)
 
 $(CLIENT):	client.c
+	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
+
+$(SERVER): server.c
 	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
 
 clean:
@@ -25,7 +28,7 @@ clean:
 
 fclean: clean
 	make fclean -C $(LIBDIR)
-	rm -f $(CLIENT)
+	rm -f $(CLIENT) $(SERVER)
 
 re: fclean all
 
