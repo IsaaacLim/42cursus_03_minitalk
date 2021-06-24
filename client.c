@@ -1,11 +1,16 @@
 #include "minitalk.h"
 
+static void ft_completed(int sig)
+{
+	ft_putstr("Message successfully sent & print\n");
+}
+
 static void	ft_send_string(int pid, char *str, int last)
 {
 	int	x;
-	char end;
+	char end[1];
 
-	end = 4;
+	end[0] = 4;
 	while (*str)
 	{
 		x = 0;
@@ -21,10 +26,7 @@ static void	ft_send_string(int pid, char *str, int last)
 		str++;
 	}
 	if (last == 0)
-	{
-		ft_send_string(pid, "\n", 1);
-		ft_send_string(pid, )
-	}
+		ft_send_string(pid, end, 1);
 }
 
 int main(int argc, char **argv)
@@ -37,5 +39,6 @@ int main(int argc, char **argv)
 	{
 		pid = ft_atoi(argv[1]);
 		ft_send_string(pid, argv[2], 0);
+		signal(SIGUSR1, ft_completed);
 	}
 }
