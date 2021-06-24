@@ -12,17 +12,17 @@ static void	ft_send_string(int pid, char *str, int last)
 			if ((*str << x) & 0x80)
 			{
 				kill(pid, SIGUSR1);
-				write (1, "1", 1);
+			//	write (1, "1", 1);
 			}
 			else
 			{
 				kill(pid, SIGUSR2);
-				write (1, "0", 1);
+			//	write (1, "0", 1);
 			}
 			x++;
-			sleep(1);
+			usleep(50);
 		}
-		write(1, "\n", 1);
+	//	write(1, "\n", 1);
 		str++;
 	}
 	if (last == 0)
