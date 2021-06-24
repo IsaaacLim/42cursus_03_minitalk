@@ -3,33 +3,50 @@
 #include <unistd.h>
 # include <sys/types.h>
 
+static char c;
+static char size;
+
 void handler_sigusr1(int sig)
 {
-	write(STDOUT_FILENO, "1", 1);
+	c += (1 << size);
+	size--;
+	//write(STDOUT_FILENO, "1", 1);
 }
 
 void handler_sigusr2(int sig)
 {
-	write(STDOUT_FILENO, "0", 1);
+	c += (0 << size);
+	size--;
+	//write(STDOUT_FILENO, "0", 1);
 }
 
 int main()
 {
-	int x;
-	int pid;
+	char	*str;
+	int		x;
+	int		pid;
 	
-	x = -3;
+	str = "abc";
 	pid = getpid();
 	signal(SIGUSR1, handler_sigusr1);
 	signal(SIGUSR2, handler_sigusr2);
-	while (x++ <= 3)
+	while (*str)
 	{
-		if (x == 1)
-			kill(pid ,SIGUSR1);
-		else if (x == 0)
-			kill (pid, SIGUSR2);
-		else
-			write(1, "-", 1);
+		c = 0;
+		size = 7;
+		x = 0;
+		while (x < 8)
+		{
+			if ((*str << x) & 0x80)
+				kill(pid ,SIGUSR1);
+			else if (!((*str << x) & 0x80))
+				kill (pid, SIGUSR2);
+			else
+				write(1, "-", 1);
+			x++;
+		}
+		write(1, &c, 1);
+		str++;
 	}
 	printf("\n");	
 }
