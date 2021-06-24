@@ -10,5 +10,6 @@ int main(int argc, char **argv)
 	{
 		ft_putstr("ok\n");
 		pid = ft_atoi(argv[1]);
+		printf("%d\n", pid);
 	}
 }
