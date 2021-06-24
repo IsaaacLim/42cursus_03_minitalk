@@ -3,8 +3,8 @@
 #include <unistd.h>
 # include <sys/types.h>
 
-static char c;
-static char size;
+char c;
+char size;
 
 void handler_sigusr1(int sig)
 {
