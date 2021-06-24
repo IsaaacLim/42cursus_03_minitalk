@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 		ft_putstr("run: ./client <PID> \"Message\"\n");
 	else
 	{
+		signal(SIGUSR1, ft_completed);
 		pid = ft_atoi(argv[1]);
 		ft_send_string(pid, argv[2], 0);
-		signal(SIGUSR1, ft_completed);
 	}
 }
