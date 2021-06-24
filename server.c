@@ -3,15 +3,18 @@
 static char c;
 static int size;
 
-static void	handler_sigusr1(int sig)
+static void	handler(int sig)
 {
-	c += (1 << size);
-	size--;
-}
-
-static void handler_sigusr2(int sig)
-{
-	c += (0 << size);
+	if (sig == SIGUSR1)
+	{
+		c += (1 << size);
+		write (1, "1", 1);
+	}
+	else
+	{
+		c += (0 << size);
+		write (1, "0", 1);
+	}
 	size--;
 }
 
@@ -24,10 +27,13 @@ int main(void)
 	pid = getpid();
 	ft_putnbr(pid);
 	write(1, "\n", 1);
-	signal(SIGUSR1, handler_sigusr1);
-	signal(SIGUSR2, handler_sigusr2);
+	signal(SIGUSR1, handler);
+	signal(SIGUSR2, handler);
 	while (1)
 	{
+		//sleep(5);
+		//printf("c: %c ", c);
+		//printf("size: %d\n", size);
 		if (size > 0)
 		{
 			write(1, &c, 1);
