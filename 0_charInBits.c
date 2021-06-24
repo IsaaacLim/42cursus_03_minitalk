@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include <unistd.h>
+# include <signal.h>
 
 void	create_char_with_bits(void)
 {
@@ -18,6 +19,7 @@ void	create_char_with_bits(void)
 }
 
 //https://stackoverflow.com/questions/18327439/printing-binary-representation-of-a-char-in-c
+//can try to send signals with this
 void	print_char_in_bits(char a)
 {
   int i;
@@ -49,13 +51,14 @@ int main()
 	create_char_with_bits();
 	print_char_in_bits('a');
 
-	print_bits_in_char(0);
-	print_bits_in_char(1);
-	print_bits_in_char(1);
-	print_bits_in_char(0);
-	print_bits_in_char(0);
-	print_bits_in_char(0);
-	print_bits_in_char(0);
-	print_bits_in_char(1);
+	print_bits_in_char(0); //8th bit
+	print_bits_in_char(1); //7th bit
+	print_bits_in_char(1); //6th bit
+	print_bits_in_char(0); //5th bit
+	print_bits_in_char(0); //4th bit
+	print_bits_in_char(0); //3rd bit
+	print_bits_in_char(0); //2nd bit
+	print_bits_in_char(1); //1st bit
 	printf("\n");
+	printf("%d\n", SIGUSR1);
 }
