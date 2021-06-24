@@ -1,6 +1,6 @@
 NAME	=	libft.a
 
-SRCS	=	ft_putstr.c
+SRCS	=	ft_atoi.c ft_putstr.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 
@@ -10,7 +10,7 @@ CCFLAGS	=	-c -Wall -Wextra -Werror -I
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-	ar rcs $@ $<
+	ar rcs $@ $^
 
 clean:
 	rm -f $(OBJS)

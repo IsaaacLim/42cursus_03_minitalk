@@ -9,7 +9,7 @@ SRCS	=	client.c
 OBJS	=	$(SRCS:%.c=%.o)
 
 CC		=	gcc
-CCFLAGS	=	#-Wall -Werror -Wextra 
+CFLAGS	=	#-Wall -Werror -Wextra 
 
 all:	$(LIBFT) $(CLIENT)
 
@@ -17,7 +17,7 @@ $(LIBFT):
 	make -C $(LIBDIR)
 
 $(CLIENT):	client.c
-	$(CC) $(CCFLAGS) $^ $(LIBFT) -o $@
+	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
 
 clean:
 	make clean -C $(LIBDIR)
