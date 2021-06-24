@@ -1,2 +1,6 @@
+**/*.o
+libft/libft.a
 a.out
+
 SAMPLE-fel-hita
+SAMPLE-liudok
