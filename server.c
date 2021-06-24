@@ -20,7 +20,10 @@ static void	ft_handler(int sig, siginfo_t *info, void *context)
 		c += (0 << size);
 	size--;
 	if (size == -1 && c == 4)
+	{
 		kill(info->si_pid, SIGUSR1);
+		//write(1, "o", 1);
+	}
 }
 
 int main(void)
