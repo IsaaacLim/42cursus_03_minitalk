@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
-# include <sys/types.h>
 
-char c;
-char size;
+static char c;
+static char size;
 
 void handler_sigusr1(int sig)
 {
