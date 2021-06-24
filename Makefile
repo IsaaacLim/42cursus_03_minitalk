@@ -1,21 +1,35 @@
 CLIENT	=	client
 SERVER	=	server
 
-LIBFT	=	libft.a
-LIBDIR	=	./libft
+LIBDIR	=	libft
+LIBFT	=	$(LIBDIR)/libft.a
 
 SRCS	=	client.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 
 CC		=	gcc
-CCFLAGS	=	-c #-Wall -Werror -Wextra 
+CCFLAGS	=	#-Wall -Werror -Wextra 
 
 all:	$(LIBFT) $(CLIENT)
 
 $(LIBFT):
 	make -C $(LIBDIR)
 
-$(CLIENT):	client.o
-	ar rcs $@ $^ $(LIBDIR)/*.o
+$(CLIENT):	client.c
+	$(CC) $(CCFLAGS) $^ $(LIBFT) -o $@
+
+clean:
+	make clean -C $(LIBDIR)
+	rm -f $(OBJS)
+
+fclean: clean
+	make fclean -C $(LIBDIR)
+	rm -f $(CLIENT)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+
+
 
