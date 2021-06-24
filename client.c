@@ -40,5 +40,6 @@ int main(int argc, char **argv)
 		signal(SIGUSR1, ft_completed);
 		pid = ft_atoi(argv[1]);
 		ft_send_string(pid, argv[2], 0);
+		sleep(1);
 	}
 }
