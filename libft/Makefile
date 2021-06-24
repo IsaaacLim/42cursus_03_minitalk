@@ -1,6 +1,6 @@
 NAME	=	libft.a
 
-SRCS	=	ft_atoi.c ft_putstr.c
+SRCS	=	ft_atoi.c ft_putchar.c ft_putnbr.c ft_putstr.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 
