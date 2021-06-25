@@ -1,20 +1,7 @@
 #include "minitalk.h"
 
-//static char c;
-//static int shift;
-
-/*static void	handler(int sig)
-{
-	if (sig == SIGUSR1)
-		c += (1 << shift);
-	else
-		c += (0 << shift);
-	shift--;
-}*/
-
 static void	ft_handler(int sig, siginfo_t *info, void *context)
 {
-	//t_serverVar *charVar; //check
 	if (sig == SIGUSR1)
 		g_var.c += (1 << g_var.shift);
 	else
@@ -24,15 +11,14 @@ static void	ft_handler(int sig, siginfo_t *info, void *context)
 		kill(info->si_pid, SIGUSR1);
 }
 
-int main(void)
+int	main(void)
 {
-	int pid;
-	struct sigaction sa;
+	struct sigaction	sa;
+
+	ft_putnbr(getpid());
+	write(1, "\n", 1);
 	g_var.c = 0;
 	g_var.shift = 7;
-	pid = getpid();
-	ft_putnbr(pid);
-	write(1, "\n", 1);
 	sa.sa_sigaction = ft_handler;
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
@@ -49,6 +35,4 @@ int main(void)
 			g_var.shift = 7;
 		}
 	}
-
-	//To do, change global variable to structs
 }

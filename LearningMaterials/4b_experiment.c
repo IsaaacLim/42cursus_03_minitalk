@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+// Creating a string with EOF character
 void	ft_putstr(char *str)
 {
 	while (*str)
@@ -21,6 +22,7 @@ void ft_createStrWithEOFChar(void)
 	ft_putstr(s);
 }
 
+// Utilizing Struct Global Variables
 typedef struct s_serverVar
 {
 	char	c;

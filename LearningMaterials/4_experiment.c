@@ -44,7 +44,7 @@ int main()
 				write(1, "-", 1);
 			x++;
 		}
-		if (c != 97) //for EOF signal
+		if (c != 97) //tesing for EOF signal
 			write(1, &c, 1);
 		else
 			write(1, "\n", 1);
