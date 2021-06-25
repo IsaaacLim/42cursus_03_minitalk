@@ -2,26 +2,25 @@
 
 static void	ft_send_string(int pid, char *str, int last)
 {
-	int	x;
-	char end[1];
+	int		x;
+	char	end[1];
 
 	end[0] = 4;
 	while (*str)
 	{
-		x = 0;
-		while (x < 8)
+		x = -1;
+		while (++x < 8)
 		{
 			if ((*str << x) & 0x80)
 			{
-				if (kill(pid, SIGUSR1) == -1);
+				if (kill(pid, SIGUSR1) == -1)
 					ft_failed(1);
 			}
 			else
 			{
-				if (kill(pid, SIGUSR2) == -1);
+				if (kill(pid, SIGUSR2) == -1)
 					ft_failed(1);
 			}
-			x++;
 			usleep(50);
 		}
 		str++;
@@ -30,9 +29,9 @@ static void	ft_send_string(int pid, char *str, int last)
 		ft_send_string(pid, end, 1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int pid;
+	int	pid;
 
 	if (argc != 3)
 		ft_failed(0);
