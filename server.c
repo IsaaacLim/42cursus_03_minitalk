@@ -54,4 +54,6 @@ int main(void)
 			size = 7;
 		}
 	}
+
+	//To do, change global variable to structs
 }
