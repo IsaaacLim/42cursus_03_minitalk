@@ -9,7 +9,7 @@ void ft_failed(int type)
 {
 	if (type == 0)
 		ft_putstr("run: ./client <PID> \"Message\"\n");
-	if (type == 1)
+	else if (type == 1)
 		ft_putstr("PID not found, check PID\n");
 	exit(type);
 }
