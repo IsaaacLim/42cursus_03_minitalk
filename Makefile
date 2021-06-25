@@ -4,7 +4,7 @@ SERVER	=	server
 LIBDIR	=	libft
 LIBFT	=	$(LIBDIR)/libft.a
 
-SRCS	=	client.c server.c
+SRCS	=	client.c server.c messages.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 
@@ -16,10 +16,10 @@ all:	$(LIBFT) $(CLIENT) $(SERVER)
 $(LIBFT):
 	make -C $(LIBDIR)
 
-$(CLIENT):	client.c
+$(CLIENT):	client.c messages.c
 	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
 
-$(SERVER): server.c
+$(SERVER): server.c messages.c
 	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
 
 clean:

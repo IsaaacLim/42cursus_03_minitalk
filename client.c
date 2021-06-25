@@ -1,10 +1,5 @@
 #include "minitalk.h"
 
-static void ft_completed(int sig)
-{
-	ft_putstr("Message successfully sent & print\n");
-}
-
 static void	ft_send_string(int pid, char *str, int last)
 {
 	int	x;
@@ -17,9 +12,15 @@ static void	ft_send_string(int pid, char *str, int last)
 		while (x < 8)
 		{
 			if ((*str << x) & 0x80)
-				kill(pid, SIGUSR1);
+			{
+				if (kill(pid, SIGUSR1) == -1);
+					ft_failed(1);
+			}
 			else
-				kill(pid, SIGUSR2);
+			{
+				if (kill(pid, SIGUSR2) == -1);
+					ft_failed(1);
+			}
 			x++;
 			usleep(50);
 		}
@@ -34,7 +35,7 @@ int main(int argc, char **argv)
 	int pid;
 
 	if (argc != 3)
-		ft_putstr("run: ./client <PID> \"Message\"\n");
+		ft_failed(0);
 	else
 	{
 		signal(SIGUSR1, ft_completed);
