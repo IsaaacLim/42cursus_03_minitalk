@@ -9,17 +9,17 @@ SRCS	=	client.c server.c messages.c
 OBJS	=	$(SRCS:%.c=%.o)
 
 CC		=	gcc
-CFLAGS	=	#-Wall -Werror -Wextra 
+CFLAGS	=	-Wall -Werror -Wextra 
 
 all:	$(LIBFT) $(CLIENT) $(SERVER)
 
 $(LIBFT):
 	make -C $(LIBDIR)
 
-$(CLIENT):	client.c messages.c
+$(CLIENT):	client.o messages.o
 	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
 
-$(SERVER): server.c messages.c
+$(SERVER): server.o messages.o
 	$(CC) $(CFLAGS) $^ $(LIBFT) -o $@
 
 clean:

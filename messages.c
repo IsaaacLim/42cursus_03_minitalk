@@ -2,6 +2,7 @@
 
 void	ft_completed(int sig)
 {
+	(void) sig;
 	ft_putstr("Message successfully sent & printed\n");
 }
 

@@ -14,6 +14,6 @@ void	ft_putnbr(int n)
 		n *= -1;
 	}
 	if (n > 9)
-		ft_putnbr(n /10);
+		ft_putnbr(n / 10);
 	ft_putchar(n % 10 + '0');
 }

@@ -2,6 +2,7 @@
 
 static void	ft_handler(int sig, siginfo_t *info, void *context)
 {
+	(void) context;
 	if (sig == SIGUSR1)
 		g_var.c += (1 << g_var.shift);
 	else
