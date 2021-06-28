@@ -3,7 +3,6 @@
 
 # include "./libft/libft.h"
 # include <signal.h>
-# include <stdio.h> //remove
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -13,7 +12,7 @@ typedef struct s_serverVar
 	int		shift;
 }	t_serverVar;
 
-t_serverVar g_var;
+t_serverVar	g_var;
 
 void	ft_completed(int sig);
 void	ft_failed(int type);

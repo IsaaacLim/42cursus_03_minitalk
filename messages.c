@@ -1,11 +1,11 @@
 #include "minitalk.h"
 
-void ft_completed(int sig)
+void	ft_completed(int sig)
 {
 	ft_putstr("Message successfully sent & print\n");
 }
 
-void ft_failed(int type)
+void	ft_failed(int type)
 {
 	if (type == 0)
 		ft_putstr("run: ./client <PID> \"Message\"\n");
