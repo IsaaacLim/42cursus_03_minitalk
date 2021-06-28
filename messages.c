@@ -2,7 +2,7 @@
 
 void	ft_completed(int sig)
 {
-	ft_putstr("Message successfully sent & print\n");
+	ft_putstr("Message successfully sent & printed\n");
 }
 
 void	ft_failed(int type)
