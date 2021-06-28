@@ -35,5 +35,6 @@ int	main(void)
 			g_var.c = 0;
 			g_var.shift = 7;
 		}
+		pause();
 	}
 }
