@@ -5,7 +5,7 @@ SRCS	=	ft_atoi.c ft_putchar.c ft_putnbr.c ft_putstr.c
 OBJS	=	$(SRCS:%.c=%.o)
 
 CC		=	gcc
-CCFLAGS	=	-c -Wall -Wextra -Werror -I
+CFLAGS	=	-c -Wall -Wextra -Werror -I
 
 all:	$(NAME)
 
