@@ -1,0 +1,8 @@
+**/*.o
+libft/libft.a
+**/a.out
+client
+server
+
+SAMPLE-fel-hita
+SAMPLE-liudok
