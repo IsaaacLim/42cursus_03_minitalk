@@ -1,4 +1,4 @@
-# Minitalk
+# Minitalk 🦜
 
 ## Grades: 125/100
 
