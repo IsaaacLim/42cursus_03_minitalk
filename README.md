@@ -1,6 +1,6 @@
 # Minitalk
 
-## Grade: 125/100
+## Grades: 125/100
 
 ## Approach
 1. Learn about signal handling
