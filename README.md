@@ -1,5 +1,7 @@
 # Minitalk
 
+## Grade: 125/100
+
 ## Approach
 1. Learn about signal handling
 2. Learn about `bitwise operators` (char -> bits & bits -> char)
